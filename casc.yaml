@@ -1,0 +1,18 @@
+jenkins:
+  numExecutors: 0 
+  remotingSecurity:
+    enabled: true
+  securityRealm: 
+    local:
+      allowsSignup: false
+      users:
+        - id: ${JENKINS_ADMIN_ID}
+          password: ${JENKINS_ADMIN_PASSWORD}
+        - id: ${JENKINS_CI_ID}
+          password: ${JENKINS_CI_PASSWORD}
+
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+      - "USER:Overall/Administer:${JENKINS_ADMIN_ID}"
+      - "GROUP:Overall/Read:authenticated"
