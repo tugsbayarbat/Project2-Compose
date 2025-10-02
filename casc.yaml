@@ -1,5 +1,5 @@
 jenkins:
-  numExecutors: 0 
+  numExecutors: 1
   remotingSecurity:
     enabled: true
   securityRealm: 

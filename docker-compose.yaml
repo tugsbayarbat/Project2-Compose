@@ -1,7 +1,6 @@
 version: '3.8' 
 services:
   jenkins: 
-    # Build docker image to install required plugins
     build: .  
     container_name: jenkins
     environment:
@@ -15,10 +14,7 @@ services:
       - JENKINS_ADMIN_PASSWORD=${ENV_JENKINS_ADMIN_PASSWORD}
       - JENKINS_CI_ID=${ENV_JENKINS_CI_ID} 
       - JENKINS_CI_PASSWORD=${ENV_JENKINS_CI_PASSWORD}
-
-      - DOCKER_HUB_CRED=${ENV_DOCKER_HUB_CRED} 
-      - SNYK_TOKEN_ID=${ENV_SNYK_TOKEN_ID} 
-
+      
       # Jenkins setup, configration as code
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc.yaml
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
